@@ -1,0 +1,37 @@
+dotnet new mvc -o UserApp
+dotnet new sln
+dotnet sln add ./UserApp/UserApp.csproj
+
+---------------------------------------
+
+1. Create folders Services , Repositories 
+
+
+------------------------------------------
+Models.cs
+
+namespace APP.models;
+public class User{
+    public User(){
+        Console.WriteLine("Inside user constructor ...");
+    }
+    public int userId{get; set;}
+    public string? userName{get; set;}
+    public string? userEmail{get; set;}
+    public string? userAddress{get; set;}
+}
+
+--------------------------------------------
+dotnet add package Mysql.Data
+--------------------------------------------
+
+
+
+
+
+-------------------------------------------------
+Index.cshtml
+
+Line 1 :: using APP.services;
+
+Line 3 :: builder.Services.AddTransient<IUserService,UserService>();
